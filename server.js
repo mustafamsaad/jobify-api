@@ -30,8 +30,6 @@ if (process.env.NODE_ENV !== "production") {
   app.use(morgan("dev"));
 }
 
-app.use(express.static(path.resolve(__dirname, "./client/dist")));
-
 app.use(cors());
 app.use(express.json());
 app.use(helmet());
@@ -40,10 +38,6 @@ app.use(mongoSanitize());
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", isAuth, jobsRouter);
-
-app.get("*", (req, res, next) => {
-  res.sendFile(path.resolve(__dirname, "./client/dist", "index.html"));
-});
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMIddleware);
