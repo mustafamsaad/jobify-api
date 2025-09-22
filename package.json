@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server --ignore-client",
-    "start": "concurrently --kill-others-on-fail \"npm run server\""
+    "start": "node server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\""
   },
   "keywords": [],
   "author": "",
